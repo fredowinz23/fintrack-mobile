@@ -18,7 +18,13 @@ data class User(
     @SerializedName("phone")
     var phone: String = "",
 
-    @SerializedName("status")
-    var status: String = "",
+    @SerializedName("password")
+    var password: String = "",
+
+    @SerializedName("error")
+    var error: String = "",
+
+    @SerializedName("success")
+    var success: Boolean = false,
 
 )

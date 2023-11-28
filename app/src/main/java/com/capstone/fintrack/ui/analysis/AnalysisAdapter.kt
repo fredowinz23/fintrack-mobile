@@ -1,24 +1,25 @@
-package com.capstone.fintrack.ui.home
+package com.capstone.fintrack.ui.analysis
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.fintrack.MainActivity
 import com.capstone.fintrack.R
 import com.capstone.fintrack.models.Account
+import com.capstone.fintrack.models.Analysis
+import com.capstone.fintrack.models.Record
 
-class HomeAdapter(private var context: Context?, private val mList: List<Account>) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class AnalysisAdapter(private var context: Context?, private val mList: List<Analysis>) : RecyclerView.Adapter<AnalysisAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // inflates the card_view_design view
-        // that is used to hold list item
+
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_account, parent, false)
+            .inflate(R.layout.item_analysis, parent, false)
 
         return ViewHolder(view)
     }
@@ -28,13 +29,8 @@ class HomeAdapter(private var context: Context?, private val mList: List<Account
 
         val item = mList[position]
 
+        holder.amount.text = item.amount.toString()
         holder.name.text = item.name
-        holder.income.text = item.income.toString()
-        holder.expense.text = item.expense.toString()
-        holder.balance.text = item.balance.toString()
-        holder.item.setOnClickListener {
-            (context as MainActivity).openOptionDialog(item.id, item.name)
-        }
     }
 
     // return the number of the items in the list
@@ -44,9 +40,7 @@ class HomeAdapter(private var context: Context?, private val mList: List<Account
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val income: TextView = itemView.findViewById(R.id.tvIncome)
-        val expense: TextView = itemView.findViewById(R.id.tvExpense)
-        val balance: TextView = itemView.findViewById(R.id.tvBalance)
+        val amount: TextView = itemView.findViewById(R.id.tvAmount)
         val name: TextView = itemView.findViewById(R.id.tvName)
         val item: LinearLayout = itemView.findViewById(R.id.llItem)
     }

@@ -42,11 +42,14 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        binding.linkSignup.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
+        }
+
         //Debug
         val userSession = UserSession(this@LoginActivity)
-        binding.tvUserTestingDebug.text = userSession.BASE_URL
 
-        binding.tvUserTestingDebug.setOnClickListener {
+        binding.ivLogo.setOnClickListener {
             startActivity(Intent(this@LoginActivity, HostUrlActivity::class.java))
         }
     }

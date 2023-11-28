@@ -24,6 +24,7 @@
             android:paddingRight="24dp">
 
             <ImageView android:src="@drawable/logo"
+                android:id="@+id/ivLogo"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginBottom="24dp"
@@ -73,12 +74,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-
-            <TextView android:id="@+id/tvUserTestingDebug"
+            <TextView android:id="@+id/link_signup"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="Url"
+                android:layout_marginBottom="24dp"
+                android:text="No Account yet? Create One"
                 android:gravity="center"
                 android:textSize="16dip"/>
 

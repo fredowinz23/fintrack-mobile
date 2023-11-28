@@ -1,12 +1,13 @@
 package com.capstone.fintrack.api
 
 import com.capstone.fintrack.auth.LoginInfo
+import com.capstone.fintrack.models.User
+import com.capstone.fintrack.request.AnalysisListRequest
+import com.capstone.fintrack.request.CategoryRequest
 import com.capstone.fintrack.request.HomeDataRequest
+import com.capstone.fintrack.request.SubmitCategoryRequest
+import com.capstone.fintrack.request.SubmitRecordRequest
 import com.capstone.fintrack.request.TransactionRequest
-import com.capstone.fintrack.todelete.Patient
-import com.capstone.fintrack.todelete.ProfileInfo
-import com.capstone.fintrack.todelete.main.MedicalRecordRequest
-import com.capstone.fintrack.todelete.main.PatientRequest
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -27,28 +28,28 @@ interface ApiInterface {
     fun getTransactions(@Body transactionRequest: TransactionRequest): Call<TransactionRequest>
 
 
-
-//    to delete
-
-    @Headers("Content-Type: application/json")
-    @POST("api/profile.php")
-    fun getProfile(@Body profileInfo: ProfileInfo): Call<ProfileInfo>
-
     @Headers("Content-Type: application/json")
     @POST("api/change-password.php")
     fun changePassword(@Body loginInfo: LoginInfo): Call<LoginInfo>
 
     @Headers("Content-Type: application/json")
-    @POST("api/get-patient-list.php")
-    fun getPatientList(@Body patientRequest: PatientRequest): Call<PatientRequest>
+    @POST("api/get-category-list.php")
+    fun getCategoryList(@Body categoryRequest: CategoryRequest): Call<CategoryRequest>
 
     @Headers("Content-Type: application/json")
-    @POST("api/get-md-records.php")
-    fun getMDRecords(@Body mdRequest: MedicalRecordRequest): Call<MedicalRecordRequest>
+    @POST("api/submit-record.php")
+    fun submitRecord(@Body submitRecordRequest: SubmitRecordRequest): Call<SubmitRecordRequest>
 
     @Headers("Content-Type: application/json")
-    @POST("api/submit-patient-form.php")
-    fun submitPatientForm(@Body patient: Patient): Call<Patient>
+    @POST("api/submit-category.php")
+    fun submitCategory(@Body submitCategoryRequest: SubmitCategoryRequest): Call<SubmitCategoryRequest>
 
+    @Headers("Content-Type: application/json")
+    @POST("api/get-analysis-list.php")
+    fun getAnalysisList(@Body analysisListRequest: AnalysisListRequest): Call<AnalysisListRequest>
+
+    @Headers("Content-Type: application/json")
+    @POST("api/signup.php")
+    fun signupUser(@Body user: User): Call<User>
 
 }

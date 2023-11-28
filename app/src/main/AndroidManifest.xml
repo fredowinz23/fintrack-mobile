@@ -46,6 +46,11 @@
         </activity>
         <activity android:name="com.capstone.fintrack.todelete.main.MedicalRecordsActivity" />
         <activity android:name="com.capstone.fintrack.todelete.main.MedicalRecordFormActivity" />
+        <activity android:name=".ui.home.IncomeExpenseFormActivity" />
+        <activity android:name=".ui.analysis.AnalysisActivity" />
+        <activity android:name=".ui.categories.CategoryActivity" />
+        <activity android:name=".ui.categories.CategoryFormActivity" />
+        <activity android:name=".auth.SignUpActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -38,6 +38,11 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    override fun onResume() {
+        super.onResume()
+        getHomeData()
+    }
+
     private fun getHomeData() {
         val retrofit = RetrofitClient.getInstance(context)
         val retrofitAPI = retrofit.create(ApiInterface::class.java)
@@ -56,7 +61,10 @@ class HomeFragment : Fragment() {
                 val groupLinear = GridLayoutManager(context, 2)
                 binding.rvList.layoutManager = groupLinear
                 val data = responseFromAPI?.account_list!!
-                binding.tvBudget.text = responseFromAPI.budget.toString()
+                binding.tvTodaysBudget.text = responseFromAPI.budget.toString()
+                binding.tvBalance.text = responseFromAPI.balance.toString()
+                binding.tvTodaysExpense.text = responseFromAPI.expense.toString()
+                binding.tvUser.text = responseFromAPI.user
 
                 val adapter = HomeAdapter(context, data)
                 binding.rvList.adapter = adapter
